@@ -28,7 +28,6 @@ public class Controller implements FetchDataService {
 		return fetchDataService.findAll();
 		
 	}
-	
 
 	@Override
 	public List<CarModel> findAll(Sort sort) {
@@ -209,19 +208,9 @@ public class Controller implements FetchDataService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 
 
-	@Override
-	public CarModel findAllById(int id) {
-		Optional<CarModel> car = Optional.of(fetchDataService.findAllById(id));
-		if(car.isPresent())
-		{
-			return car.get();
-		}
-		else 
-		{
-			System.out.println("Wrong id");
-		}
-	}
+	
 	
 }

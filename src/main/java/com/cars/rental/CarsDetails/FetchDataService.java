@@ -10,7 +10,7 @@ public interface FetchDataService extends JpaRepository<CarModel, Integer> {
 
 	@Override
 	List<CarModel> findAll();
-	CarModel findAllById(int id);
+	
 	
 	
 	
