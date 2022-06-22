@@ -24,7 +24,6 @@ public class Controller implements FetchDataService {
 	private static final Throwable Id = null;
 	@Autowired
 	FetchDataService fetchDataService;
-	
 		
 	@GetMapping(path = "cars")
 	public List<CarModel> fetchCars() {		

@@ -1,6 +1,6 @@
 package com.cars.rental.CarsDetails;
 
-import java.util.List;
+
 import java.util.Optional;
 import java.util.Scanner;
 import java.util.function.Function;
@@ -27,8 +27,7 @@ import com.cars.rental.until.CarType;
 @Entity
 @Table(name = "Car_Details")
 public class CarModel {
-	@Autowired
-	CarsDetailsApplication carsDetailsApplication;
+	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -154,11 +153,10 @@ public class CarModel {
 				+ seats + ", carType=" + carType + "]";
 	}
 
-	public void setMake() {
-		// TODO Auto-generated method stub
+	
 		
 	}
 
 	
 	
-}
+
