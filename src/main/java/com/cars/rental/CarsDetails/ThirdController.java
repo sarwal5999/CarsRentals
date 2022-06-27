@@ -6,7 +6,6 @@ import java.util.function.Function;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -22,226 +21,196 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @Service
-@Qualifier("firstService")
-public class Controller implements FetchDataService {
+@Qualifier("ThirdService")
+public class ThirdController implements FetchAvailableService {
 
 	private static final Throwable Id = null;
 	@Autowired
-	FetchDataService fetchDataService;
+	FetchAvailableService fetchAvailableService;
 		
-	@GetMapping(path = "cars")
-	public List<CarModel> fetchCars() {		
+	@GetMapping(path = "avcars")
+	public List<AvailableCar> fetchAvailableCars() {		
 		
-		return fetchDataService.findAll();
+		return fetchAvailableService.findAll();
 		
 	}
-	@GetMapping(path = "cars/{car_Id}")
-	public CarModel fetchCarsById(@PathVariable int car_Id) {		
+	@GetMapping(path = "avcars/{avId}")
+	public AvailableCar fetchAvailableCarsById(@PathVariable int avId) {		
 		
-		Optional<CarModel>carmodel = fetchDataService.findById(car_Id);
-		if(carmodel.isEmpty())
+		Optional<AvailableCar>availble = fetchAvailableService.findById(avId);
+		if(availble.isEmpty())
 		{
-			throw new RuntimeException("Car not found with Id" +car_Id );
+			throw new RuntimeException("Car not found with Id" +avId );
 		}
-		return carmodel.get();
+		return availble.get();
 		
 	}
-	@PostMapping("/cars")
-	public void addCar(@RequestBody CarModel carmodel)
+	@PostMapping("/avcars")
+	public void addAvailableCar(@RequestBody AvailableCar availble)
 	{
-		fetchDataService.save(carmodel);
-	}
-	@DeleteMapping(path = "cars/{car_Id}")
-	public void deleteCar(@PathVariable int car_Id)
-	{
-		fetchDataService.deleteById(car_Id);
+		fetchAvailableService.save(availble);
 	}
 	
-
+	@DeleteMapping(path = "avcars/{avId}")
+	public void deleteAvailableCar(@PathVariable int avId)
+	{
+		fetchAvailableService.deleteById(avId);
+	}
 	@Override
-	public List<CarModel> findAll(Sort sort) {
+	public List<AvailableCar> findAll(Sort sort) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
-	public List<CarModel> findAllById(Iterable<Integer> ids) {
+	public List<AvailableCar> findAllById(Iterable<Integer> ids) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
-	public <S extends CarModel> List<S> saveAll(Iterable<S> entities) {
+	public <S extends AvailableCar> List<S> saveAll(Iterable<S> entities) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
 	public void flush() {
 		// TODO Auto-generated method stub
 		
 	}
-
 	@Override
-	public <S extends CarModel> S saveAndFlush(S entity) {
+	public <S extends AvailableCar> S saveAndFlush(S entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
-	public <S extends CarModel> List<S> saveAllAndFlush(Iterable<S> entities) {
+	public <S extends AvailableCar> List<S> saveAllAndFlush(Iterable<S> entities) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
-	public void deleteAllInBatch(Iterable<CarModel> entities) {
+	public void deleteAllInBatch(Iterable<AvailableCar> entities) {
 		// TODO Auto-generated method stub
 		
 	}
-
 	@Override
 	public void deleteAllByIdInBatch(Iterable<Integer> ids) {
 		// TODO Auto-generated method stub
 		
 	}
-
 	@Override
 	public void deleteAllInBatch() {
 		// TODO Auto-generated method stub
 		
 	}
-
 	@Override
-	public CarModel getOne(Integer id) {
+	public AvailableCar getOne(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
-	public CarModel getById(Integer id) {
+	public AvailableCar getById(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
-	public CarModel getReferenceById(Integer id) {
+	public AvailableCar getReferenceById(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
-	public <S extends CarModel> List<S> findAll(Example<S> example) {
+	public <S extends AvailableCar> List<S> findAll(Example<S> example) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
-	public <S extends CarModel> List<S> findAll(Example<S> example, Sort sort) {
+	public <S extends AvailableCar> List<S> findAll(Example<S> example, Sort sort) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
-	public Page<CarModel> findAll(Pageable pageable) {
+	public Page<AvailableCar> findAll(Pageable pageable) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
-	public <S extends CarModel> S save(S entity) {
+	public <S extends AvailableCar> S save(S entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
-	public Optional<CarModel> findById(Integer id) {
+	public Optional<AvailableCar> findById(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
 	public boolean existsById(Integer id) {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
 	@Override
 	public long count() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
 	@Override
 	public void deleteById(Integer id) {
 		// TODO Auto-generated method stub
 		
 	}
-
 	@Override
-	public void delete(CarModel entity) {
+	public void delete(AvailableCar entity) {
 		// TODO Auto-generated method stub
 		
 	}
-
 	@Override
 	public void deleteAllById(Iterable<? extends Integer> ids) {
 		// TODO Auto-generated method stub
 		
 	}
-
 	@Override
-	public void deleteAll(Iterable<? extends CarModel> entities) {
+	public void deleteAll(Iterable<? extends AvailableCar> entities) {
 		// TODO Auto-generated method stub
 		
 	}
-
 	@Override
 	public void deleteAll() {
 		// TODO Auto-generated method stub
 		
 	}
-
 	@Override
-	public <S extends CarModel> Optional<S> findOne(Example<S> example) {
+	public <S extends AvailableCar> Optional<S> findOne(Example<S> example) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
-	public <S extends CarModel> Page<S> findAll(Example<S> example, Pageable pageable) {
+	public <S extends AvailableCar> Page<S> findAll(Example<S> example, Pageable pageable) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
-	public <S extends CarModel> long count(Example<S> example) {
+	public <S extends AvailableCar> long count(Example<S> example) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
 	@Override
-	public <S extends CarModel> boolean exists(Example<S> example) {
+	public <S extends AvailableCar> boolean exists(Example<S> example) {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
 	@Override
-	public <S extends CarModel, R> R findBy(Example<S> example, Function<FetchableFluentQuery<S>, R> queryFunction) {
+	public <S extends AvailableCar, R> R findBy(Example<S> example,
+			Function<FetchableFluentQuery<S>, R> queryFunction) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
-	public List<CarModel> findAll() {
+	public List<AvailableCar> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 	
 
 
 	
 	
 }
-
-

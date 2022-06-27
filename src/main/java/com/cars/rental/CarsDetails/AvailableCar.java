@@ -1,10 +1,5 @@
 package com.cars.rental.CarsDetails;
 
-
-import java.util.Optional;
-import java.util.Scanner;
-import java.util.function.Function;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,22 +7,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.repository.query.FluentQuery.FetchableFluentQuery;
-
-import com.cars.rental.until.EngineType;
-import com.cars.rental.until.FuelType;
-import com.cars.rental.until.CarType;
-
-
 @Entity
-@Table(name = "Car_Details")
-public class CarModel {
-	
+@Table(name = "available_cars")
+public class AvailableCar {
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -154,9 +137,4 @@ public class CarModel {
 	}
 
 	
-		
-	}
-
-	
-	
-
+}

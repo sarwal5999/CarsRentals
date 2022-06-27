@@ -17,7 +17,7 @@ public class BookCar {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
 	Integer  id;	
-	
+
 	@Column(name = "fromd")
 	Date fromd;		
 	
