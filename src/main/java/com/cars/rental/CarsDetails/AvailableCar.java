@@ -14,6 +14,9 @@ public class AvailableCar {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "av_id")
+	Integer  av_Id;
+	
 	@Column(name = "car_id")
 	Integer  car_Id;	
 	
@@ -47,12 +50,20 @@ public class AvailableCar {
 	//CarType carType;
 	String carType;
 
-	public Integer getCarId() {
+	public Integer getAv_Id() {
+		return av_Id;
+	}
+
+	public void setAv_Id(Integer av_Id) {
+		this.av_Id = av_Id;
+	}
+
+	public Integer getCar_Id() {
 		return car_Id;
 	}
 
-	public void setCarId(Integer carId) {
-		this.car_Id = carId;
+	public void setCar_Id(Integer car_Id) {
+		this.car_Id = car_Id;
 	}
 
 	public String getMake() {
@@ -127,14 +138,14 @@ public class AvailableCar {
 		this.carType = carType;
 	}
 
-	
-	
 	@Override
 	public String toString() {
-		return "CarModel [carId=" + car_Id + ", make=" + make + ", model=" + model + ", year=" + year + ", color="
-				+ color + ", rego=" + rego + ", fuelType=" + fuelType + ", engineType=" + engineType + ", seats="
-				+ seats + ", carType=" + carType + "]";
+		return "AvailableCar [av_Id=" + av_Id + ", car_Id=" + car_Id + ", make=" + make + ", model=" + model + ", year="
+				+ year + ", color=" + color + ", rego=" + rego + ", fuelType=" + fuelType + ", engineType=" + engineType
+				+ ", seats=" + seats + ", carType=" + carType + "]";
 	}
+
+	
 
 	
 }

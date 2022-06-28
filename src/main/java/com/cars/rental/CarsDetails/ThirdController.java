@@ -34,13 +34,13 @@ public class ThirdController implements FetchAvailableService {
 		return fetchAvailableService.findAll();
 		
 	}
-	@GetMapping(path = "avcars/{avId}")
-	public AvailableCar fetchAvailableCarsById(@PathVariable int avId) {		
+	@GetMapping(path = "avcars/{av_Id}")
+	public AvailableCar fetchAvailableCarsById(@PathVariable int av_Id) {		
 		
-		Optional<AvailableCar>availble = fetchAvailableService.findById(avId);
+		Optional<AvailableCar>availble = fetchAvailableService.findById(av_Id);
 		if(availble.isEmpty())
 		{
-			throw new RuntimeException("Car not found with Id" +avId );
+			throw new RuntimeException("Car not found with Id" +av_Id );
 		}
 		return availble.get();
 		
@@ -51,10 +51,10 @@ public class ThirdController implements FetchAvailableService {
 		fetchAvailableService.save(availble);
 	}
 	
-	@DeleteMapping(path = "avcars/{avId}")
-	public void deleteAvailableCar(@PathVariable int avId)
+	@DeleteMapping(path = "avcars/{av_Id}")
+	public void deleteAvailableCar(@PathVariable int av_Id)
 	{
-		fetchAvailableService.deleteById(avId);
+		fetchAvailableService.deleteById(av_Id);
 	}
 	@Override
 	public List<AvailableCar> findAll(Sort sort) {
